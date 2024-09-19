@@ -37,8 +37,8 @@ function getRandomNumberAI() {
   else if (playerRoll > aiRoll) {
     showAiRollResult("Player Wins");
   }
-  else if (aiRoll === playerRoll) {
-    showAiRollResult("It's a draw");
+  if (aiRoll === playerRoll) {
+    showAiRollResult("It's A Draw");
   }
 
 //VIEWS
@@ -47,7 +47,7 @@ function showAiRollResult() {
   aiRollText.innerHTML = aiRoll;
 }
 function showResult () {
-  resultText.innerHTML = text;
+  resultText.innerHTML = " The Result Is";
 }
 function showPlayerRollResult() {
   playerRollText.innerHTML = playerRoll;
