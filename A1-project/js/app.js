@@ -19,7 +19,6 @@ button0.addEventListener("click", function() {
   getRandomNumberPlayer();
   getRandomNumberAI();
   showPlayerRollResult();
-  showComputerRollResult();
   showResult();
 });
 
