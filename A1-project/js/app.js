@@ -43,15 +43,12 @@ function getRandomNumberAI() {
 
 //VIEWS
 }
-function showAiRollResult() {
-  aiRollText.innerHTML = aiRoll;
-}
-function showResult () {
-  resultText.innerHTML = " The Result Is";
-}
-function showPlayerRollResult() {
-  playerRollText.innerHTML = playerRoll;
-}
-function showComputerRollResult() {
-  aiRollText.innerHTML = aiRoll;
-}
+  function showResult () {
+    resultText.innerHTML = "Result: " + resultText;
+  }
+  function showPlayerRollResult() {
+    playerRollText.innerHTML = "Player " + playerRoll;
+  }
+  function showAiRollResult() {
+    aiRollText.innerHTML = "AI " + aiRoll;
+  }
