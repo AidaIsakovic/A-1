@@ -1,51 +1,57 @@
-// VARIABLES
-// BUTTON
+//VARIABLES
+//BUTTON
 let button0 = document.getElementById("button0");
 
-//texts
+// TEXTS
 let playerRollText = document.getElementById("playerRollText");
 let aiRollText = document.getElementById("aiRollText");
 let resultText = document.getElementById("resultText");
-let playerScoreText = document.getElementById("playerScore");
-let aiScoreText = document.getElementById("aiScore");
 
-// DATA
-let playerRoll= getRandomNumberOneToSixPlayer();
-console.log(playerRoll);
-let aiRoll = getRandomNumberOneToSixAi();
-console.log(aiRoll);
 
-//SCORE
-let playerScore = 0;
-let aiScore = 0;
+//DATA
+let playerRoll = 0;
+let aiRoll = 0;
 
-//PROCESS
-button0.addEventListener("click", function(){
-  getRandomNumberOneToSixPlayer();
-  showPlayerResult();
-  getRandomNumberOneToSixAi();
-  showAiResult();
 
+
+//Process
+button0.addEventListener("click", function() {
+  getRandomNumberPlayer();
+  getRandomNumberAI();
+  showPlayerRollResult();
+  showComputerRollResult();
+  showResult();
 });
 
-//CONTROLLERS
-function getRandomNumberOneToSixPlayer() {
-  return Math.floor(Math.random() * 6) + 1;
-}
-function getRandomNumberOneToSixAi() {
-  return Math.floor(Math.random() * 6) + 1;
-}
+//CONTROLLER
+function getRandomNumberPlayer() {
+  playerRoll = Math.floor(Math.random() * 6) + 1;
 
-
-//views
-function showPlayerRollResult(){
-  playerScoreText.innerHTML = playerRoll;
 }
+function getRandomNumberAI() {
+  aiRoll = Math.floor(Math.random() * 6) + 1;
 
-function showAiResult(){
-  aiScoreText.innerHTML = aiRoll;
+  if (aiRoll > playerRoll) {
+    resultText = ("AI Wins");
+  }
+  else if (playerRoll > aiRoll) {
+    showAiRollResult("Player Wins");
+  }
+  else if (aiRoll === playerRoll) {
+    showAiRollResult("It's a draw");
+  }
+
+//VIEWS
 }
-
-function showResultText(){
-  resultText.innerHTML = resultText;
+function showAiRollResult() {
+  aiRollText.innerHTML = aiRoll;
+}
+function showResult () {
+  resultText.innerHTML = text;
+}
+function showPlayerRollResult() {
+  playerRollText.innerHTML = playerRoll;
+}
+function showComputerRollResult() {
+  aiRollText.innerHTML = aiRoll;
 }
