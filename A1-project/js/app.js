@@ -31,13 +31,13 @@ function getRandomNumberAI() {
   aiRoll = Math.floor(Math.random() * 6) + 1;
 
   if (aiRoll > playerRoll) {
-    resultText = ("AI Wins");
+    resultText = ("AI Wins!");
   }
   else if (playerRoll > aiRoll) {
-    showAiRollResult("Player Wins");
+    showAiRollResult("Player Wins!");
   }
   if (aiRoll === playerRoll) {
-    showAiRollResult("It's A Draw");
+    showAiRollResult("It's A Draw!");
   }
 
 //VIEWS
