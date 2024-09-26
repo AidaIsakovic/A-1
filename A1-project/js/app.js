@@ -5,49 +5,59 @@ let button0 = document.getElementById("button0");
 // TEXTS
 let playerRollText = document.getElementById("playerRollText");
 let aiRollText = document.getElementById("aiRollText");
-let resultText = document.getElementById("resultText");
-
+let evaluationText = document.getElementById("evaluationText");
+let playerScoreText=document.getElementById("playerScoreText");
+let aiScoreText=document.getElementById("aiScoreText");
 
 //DATA
 let playerRoll = 0;
 let aiRoll = 0;
 
+let playerScore=0;
+let aiScore=0;
+
 
 
 //Process
 button0.addEventListener("click", function() {
-  getRandomNumberPlayer();
-  getRandomNumberAI();
+  getRandomNumberOneToSixForPlayer();
   showPlayerRollResult();
-  showResult();
+  getRandomNumberOneToSixForAi();
+  showAiRollResult();
+  evaluateRoll();
+  updateScores();
 });
 
 //CONTROLLER
-function getRandomNumberPlayer() {
-  playerRoll = Math.floor(Math.random() * 6) + 1;
-
+function getRandomNumberOneToSixForPlayer(){
+  playerRoll =Math.floor(Math.random()* 6) + 1;
 }
-function getRandomNumberAI() {
-  aiRoll = Math.floor(Math.random() * 6) + 1;
+function getRandomNumberOneToSixForAi(){
+  aiRoll =Math.floor(Math.random() * 6) + 1;
+}
 
-  if (aiRoll > playerRoll) {
-    resultText = ("AI Wins!");
+function evaluateRoll(){
+  if(playerRoll > aiRoll){
+    evaluationText.innerHTML= "You Win!";
+    playerScore++;
+  } else if(playerRoll < aiRoll){
+    evaluationText.innerHTML= "AI Wins!";
+    aiScore++;
+  } else{
+    evaluationText.innerHTML= "It´s A Draw!";
   }
-  else if (playerRoll > aiRoll) {
-    showAiRollResult("Player Wins!");
-  }
-  if (aiRoll === playerRoll) {
-    showAiRollResult("It's A Draw!");
-  }
+}
 
 //VIEWS
-}
-  function showResult () {
-    resultText.innerHTML = "Result: " + resultText;
+
+  function showPlayerRollResult(){
+    playerRollText.innerHTML= "Player rolled: " + playerRoll;
   }
-  function showPlayerRollResult() {
-    playerRollText.innerHTML = "Player " + playerRoll;
+
+  function showAiRollResult(){
+    aiRollText.innerHTML = "AI rolled: " + aiRoll;
   }
-  function showAiRollResult() {
-    aiRollText.innerHTML = "AI " + aiRoll;
+  function updateScores(){
+    playerScoreText.innerHTML= "Player total wins: " + playerScore.toString();
+    aiScoreText.innerHTML= "AI total wins: " + aiScore.toString();
   }
