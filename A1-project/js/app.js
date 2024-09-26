@@ -60,3 +60,5 @@ function evaluateRoll(){
     playerScoreText.innerHTML= "Player total wins: " + playerScore.toString();
     aiScoreText.innerHTML= "AI total wins: " + aiScore.toString();
   }
+
+// COOKIES
