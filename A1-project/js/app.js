@@ -15,7 +15,8 @@ let aiRoll = 0;
 let playerScore=0;
 let aiScore=0;
 
-
+tryLoadGame();
+updateScores();
 
 //Process
 button0.addEventListener("click", function() {
@@ -25,6 +26,7 @@ button0.addEventListener("click", function() {
   showAiRollResult();
   evaluateRoll();
   updateScores();
+  saveAsCookie();
 });
 
 //CONTROLLER
@@ -62,3 +64,26 @@ function evaluateRoll(){
   }
 
 // COOKIES
+function saveAsCookie() {
+  document.cookie = "playerScore=" +
+    playerScore + ";expires=Tue, 31 Dec 2024 12:00:00UTC";
+  document.cookie = "aiScore=" + aiScore + ";expires=Thu, 18 Dec 2025 12:00:00UTC";
+}
+
+function tryLoadGame() {
+  playerScore = getCookie ("playerScore");
+  aiScore=getCookie ("aiScore");
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);       }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);       }   }
+  return 0;
+}
