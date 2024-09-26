@@ -1,4 +1,3 @@
-//VARIABLES
 //BUTTON
 let button0 = document.getElementById("button0");
 
